@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			<!-- Slide: Introduction Slide-->
+			<!-- Premise: This is a brief overview of the talk I will give. -->
+			<section>
+				<h4>Fitting differential equations to data</br> - A simple introduction</h4>
+			</section>
+
+			<!-- Slide: Slide Title -->
+			<!-- Premise: Slide description. -->
+			<section>
+				<p style="font-size:100%">Scenario: An emerging epidemic</p>
+				<p><img src="images/epidemic_start.png"
+					style="width:70%;" class="plain">
+				</img></p>
+				<p style="font-size:70%">Knowing future development is crucial to assess hospital bed requirements.</p>
+			</section>
+
+			<!-- Slide: Slide Title -->
+			<!-- Premise: Slide description. -->
+			<section>
+				<p style="font-size:90%">An SIR model differential equation can make predictions</p>
+				<p><img src="images/sir_simulation_base.png"
+					style="width:70%;" class="plain">
+				</img></p>
+				<p style="font-size:70%">Here, the model can be simulated from known initial conditions.</p>
+			</section>
+
+			<!-- Slide: Slide Title -->
+			<!-- Premise: Slide description. -->
+			<section>
+				<p style="font-size:100%">Problem: epidemic-specific parameters are unknown</p>
+				<p><img src="images/sir_simulation_p_alts.png"
+					style="width:70%;" class="plain">
+				</img></p>
+				<p style="font-size:70%">The infection rate (<i>β</i>) and recovery rate (<i>γ</i>) affect predictions.</p>
+			</section>
+
+			<!-- Slide: Slide Title -->
+			<!-- Premise: Slide description. -->
+			<section>
+				<p style="font-size:100%">Solution: Fit parameters to known data</p>
+				<p><img src="images/sir_simulation_p_alts_grid.png"
+					style="width:70%;" class="plain">
+				</img></p>
+				<p style="font-size:60%">Roughly: Simulate model for many proposed parameter sets, select the best fitting one.</p>
+				<p style="font-size:60%">(In practice, good strategies for finding the optimal set exist)</p>
+			</section>
+
+			<!-- Slide: Slide Title -->
+			<!-- Premise: Slide description. -->
+			<section>
+				<p style="font-size:100%">We can now make predictions</p>
+				<p><img src="images/sir_simulation_prediction.png"
+					style="width:70%;" class="plain">
+				</img></p>
+				<p style="font-size:70%">If our fit was correct, we should be able to predict the epidemic's trajectory</p>
+			</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true }
+				]
+			});
+			Reveal.configure({ slideNumber: true });
+
+		</script>
+
+	</body>
+</html>
